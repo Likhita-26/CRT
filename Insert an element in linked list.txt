@@ -1,0 +1,93 @@
+Insert an element in linked list 
+Write a program to insert an element at the end of the linked list. Get the value continuously from the user until the user enters a negative value.
+
+Input Format
+
+The input should be numbers (until user enters a negative value)
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+The output should be numbers in the list in separate line.
+
+Sample Input 0
+
+1
+2
+3
+4
+-1
+Sample Output 0
+
+1
+2
+3
+4
+Sample Input 1
+
+1
+10
+2
+20
+3
+-1
+Sample Output 1
+
+1
+10
+2
+20
+3
+Sample Input 2
+
+1
+5
+3
+2
+8
+-1
+Sample Output 2
+
+1
+5
+3
+2
+8
+Submissions: 48
+Max Score: 0
+Difficulty: Medium
+Rate This Challenge:
+
+    
+More
+ 
+class node:
+    def __init__(self,x):
+        self.data=x
+        self.next=None
+class Linkedlist:
+    def __init__(self):
+        self.head=self.tail=None
+    def create(self,x):
+        n=node(x)
+        if self.head==None:
+            self.head=self.tail=n
+        else:
+            self.tail.next=n
+            self.tail=n
+    def show(self):
+        temp=self.head
+        while temp!=None:
+            print(temp.data)
+            temp=temp.next
+l=Linkedlist()
+while True:
+    x=int(input())
+    if x==-1:
+        break
+    else:
+        l.create(x)
+l.show()
