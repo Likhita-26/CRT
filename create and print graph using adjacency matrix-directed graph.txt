@@ -1,0 +1,49 @@
+create and print graph using adjacency matrix-directed graph
+
+def addnode(v):
+    global nodecount
+    if v in nodes:
+        print(v,"is already available in graph")
+    else:
+        nodes.append(v)
+        nodecount=nodecount+1
+        for x in graph:
+            x.append(0)
+        temp=[]
+        for i in range(nodecount):
+            temp.append(0)
+        graph.append(temp)
+def addedge(node1,node2):
+    if node1 not in nodes:
+        print("node1 is already available")
+    elif node2 not in nodes:
+        print("node2 is already available")
+    else:
+        i=nodes.index(node1)
+        j=nodes.index(node2)
+        graph[i][j]=1
+def show():
+    for i in range(nodecount):
+        for j in range(nodecount):
+            print(graph[i][j],end=" ")
+        print()
+nodes=[]
+graph=[]
+nodecount=0
+while True:
+    print()
+    print("1.addnode\n2.addedge\n3.show\n4.exit")
+    ch=int(input("enter your choice"))
+    if ch==1:
+        x=input("enter node")
+        addnode(x)
+    elif ch==2:
+        node1=input("enter first node")
+        node2=input("enter second node")
+        addedge(node1,node2)
+    elif ch==3:
+        show()
+    elif ch==4:
+        break
+    else:
+        print("invalid choice")
