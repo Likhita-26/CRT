@@ -1,0 +1,40 @@
+adjacency list-undirected graph(weighted)
+
+def addnode(v):
+    global nodecount
+    if v in graph:
+        print(v,"is already available in graph")
+    else:
+        graph[v]=[]
+def show():
+    for x in graph:
+        print(x,":",graph[x])
+def addedge(node1,node2,w):
+    if node1 not in graph:
+        print("node1 is already available")
+    elif node2 not in graph:
+        print("node2 is already available")
+    else:
+        graph[node1].append(node2)
+        graph[node1].append(w)
+        graph[node2].append(node1)
+        graph[node2].append(w)
+graph={}
+while True:
+    print()
+    print("1.addnode\n2.addedge\n3.show\n4.exit")
+    ch=int(input("enter your choice"))
+    if ch==1:
+        x=input("enter node")
+        addnode(x)
+    elif ch==2:
+        node1=input("enter first node")
+        node2=input("enter second node")
+        w=input("enter weight")
+        addedge(node1,node2,w)
+    elif ch==3:
+        show()
+    elif ch==4:
+        break
+    else:
+        print("invalid choice")
