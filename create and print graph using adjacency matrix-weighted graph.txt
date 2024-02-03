@@ -1,4 +1,4 @@
-create and print graph using adjacency matrix-wighted graph
+create and print graph using adjacency matrix-wighted graph(directed graph)
 
 def addnode(v):
     global nodecount
@@ -22,7 +22,6 @@ def addedge(node1,node2,w):
         i=nodes.index(node1)
         j=nodes.index(node2)
         graph[i][j]=w
-        graph[j][i]=w
 def show():
     for i in range(nodecount):
         for j in range(nodecount):
