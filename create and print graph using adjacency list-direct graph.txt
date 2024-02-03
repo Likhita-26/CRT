@@ -1,4 +1,4 @@
-create and print graph using adjacency list-undirected graph
+adjacency list-undirected graph
 
 def addnode(v):
     global nodecount
