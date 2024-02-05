@@ -1,0 +1,21 @@
+def bfs(visited, graph, node):
+    visited.append(node)
+    queue.append(node)
+    while queue:
+        m=queue.pop(0)
+        print(m,end=" ")
+        for v in graph[m]:
+            if v not in visited:
+                visited.append(v)
+                queue.append(v)
+graph={
+    '5':['3','7'],
+    '3':['2','4'],
+    '7':['8'],
+    '2':[],
+    '4':['8'],
+    '8':[]
+}
+visited=[]
+queue=[]
+bfs(visited, graph, '5')
