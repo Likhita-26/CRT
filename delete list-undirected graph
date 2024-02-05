@@ -1,0 +1,48 @@
+global nodecount
+def addnode(v):
+    global nodecount
+    if v in graph:
+        print(v,"already available")
+    else:
+        graph[v]=[]
+def show():
+    for x in graph:
+        print(x,":",graph[x])
+def addedge(node1,node2):
+    if node1 not in graph:
+        print(node1,"not available in graph")
+    elif node2 not in graph:
+        print(node2,"not available in graph")
+    else:
+        graph[node1].append(node2)
+        graph[node2].append(node1)
+def deletenode(v):
+    global nodecount
+    if v not in graph:
+        print(v,"not available")
+    else:
+        graph.pop(v)
+        for x in graph:
+            if v in graph[x]:
+                graph[x].remove(v)         
+graph={ }
+while True:
+    print()
+    print("1.addnode\n2.addedge\n3.deletenode\n4.show\n5.exit")
+    ch=int(input("enter your choice"))
+    if ch==1:
+        x=input("enter node")
+        addnode(x)
+    elif ch==2:
+        node1=input("enter 1st node")
+        node2=input("enter 2nd node")
+        addedge(node1,node2)
+    elif ch==3:
+        v=input("enter delete node")
+        deletenode(v)
+    elif ch==4:
+        show()
+    elif ch==5:
+        break
+    else:
+        print("invalid choice")
