@@ -1,0 +1,36 @@
+class node:
+    def __init__(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        else:
+            if self.data>x:
+                if self.left==None:
+                    self.left=node(x)
+                else:
+                    self.left.insert(x)
+            else:
+                if self.right==None:
+                    self.right=node(x)
+                else:
+                    self.right.insert(x)
+    def show(self):
+        if self.left:
+            self.left.show()
+        print(self.data,end=" ")
+        if self.right:
+            self.right.show()
+y=int(input())
+root=node(y)
+while True:
+    x=int(input())
+    if x==-1:
+        break
+    else:
+        root.insert(x)
+root.show()
+            
